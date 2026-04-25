@@ -62,9 +62,10 @@ const FileUploadTab = ({ onUploaded }: { onUploaded?: () => void }) => {
       const json = await res.json();
       setData(json);
 
-      if (user) {
+      // Temporarily disabled user-based constraint for testing purposes
+      // if (user) {
         const { error } = await supabase.from("extractions").insert({
-          user_id: user.id,
+          user_id: user?.id || "00000000-0000-0000-0000-000000000000", // Fallback ID for testing
           file_name: selected.name,
           data: json,
         });
@@ -72,7 +73,7 @@ const FileUploadTab = ({ onUploaded }: { onUploaded?: () => void }) => {
         setSaved(true);
         onUploaded?.();
         toast.success("Extraction saved");
-      }
+      // }
     } catch (e: any) {
       toast.error(e.message ?? "Upload failed");
     } finally {
@@ -161,10 +162,9 @@ const FileUploadTab = ({ onUploaded }: { onUploaded?: () => void }) => {
             <FileUp className="h-7 w-7 text-deep-navy" />
           )}
         </div>
-        <h3 className="text-lg font-semibold text-ink">Upload Document</h3>
+        <h3 className="text-lg font-semibold text-ink">Upload PDF</h3>
         <p className="text-sm text-slate mt-2 max-w-xs">
-          Drag and drop your PDF invoices, receipts, or technical documents here
-          for instant extraction.
+          Drag and drop your PDF bills for instant extraction.
         </p>
         <Button
           variant="navy"
@@ -293,14 +293,14 @@ const FileUploadTab = ({ onUploaded }: { onUploaded?: () => void }) => {
                   {JSON.stringify(data, null, 2)}
                 </pre>
 
-                <div className="mt-4 flex gap-2">
+                {/* <div className="mt-4 flex gap-2">
                   <Button variant="navy" className="flex-1">
                     <CheckCircle2 className="h-4 w-4" /> Approve Extraction
                   </Button>
                   <Button variant="outline" size="icon" aria-label="Edit">
                     <Pencil className="h-4 w-4" />
                   </Button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

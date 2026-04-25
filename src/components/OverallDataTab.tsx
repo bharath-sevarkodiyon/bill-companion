@@ -284,9 +284,9 @@ const OverallDataTab = ({ refreshKey }: { refreshKey: number }) => {
             >
               <ChevronRight className="h-4 w-4" />
             </Button>
-            <Button variant="navy" size="icon" className="ml-2 rounded-full" aria-label="Add">
+            {/* <Button variant="navy" size="icon" className="ml-2 rounded-full" aria-label="Add">
               <Plus className="h-4 w-4" />
-            </Button>
+            </Button> */}
           </div>
         </div>
       </Card>
