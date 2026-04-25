@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DataExtractor Pro design system - HSL only */
+
+@layer base {
+  :root {
+    /* Brand palette */
+    --background: 210 29% 97%;        /* Cloud #F5F7FA */
+    --foreground: 213 41% 17%;        /* Ink #1A2A3E */
+
+    --card: 213 33% 94%;              /* Mist #E8EEF6 */
+    --card-foreground: 213 41% 17%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 41% 17%;
+
+    --primary: 213 73% 14%;           /* Deep Navy #0B2240 */
+    --primary-foreground: 210 29% 97%;
+
+    --secondary: 213 51% 25%;         /* Steel Blue #1E3A5F */
+    --secondary-foreground: 210 29% 97%;
+
+    --muted: 213 33% 94%;
+    --muted-foreground: 213 24% 38%;  /* Slate #4A5E78 */
+
+    --accent: 213 51% 25%;
+    --accent-foreground: 210 29% 97%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 38%;
+
+    --border: 213 25% 86%;
+    --input: 213 25% 86%;
+    --ring: 213 73% 14%;
+
+    --radius: 0.625rem;
+
+    /* Semantic surfaces */
+    --surface: 213 33% 94%;
+    --surface-foreground: 213 41% 17%;
+    --header: 213 73% 14%;
+    --header-foreground: 210 29% 97%;
+    --slate: 213 24% 38%;
+    --ink: 213 41% 17%;
+
+    --shadow-card: 0 1px 2px 0 hsl(213 41% 17% / 0.04), 0 1px 3px 0 hsl(213 41% 17% / 0.06);
+    --shadow-elevated: 0 10px 30px -12px hsl(213 73% 14% / 0.18);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4 {
+    @apply text-ink tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-ink { color: hsl(var(--ink)); }
+  .text-slate { color: hsl(var(--slate)); }
+  .bg-mist { background-color: hsl(var(--card)); }
+  .bg-cloud { background-color: hsl(var(--background)); }
+  .bg-deep-navy { background-color: hsl(var(--primary)); }
+  .bg-steel { background-color: hsl(var(--secondary)); }
+}
